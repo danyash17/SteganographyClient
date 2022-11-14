@@ -104,7 +104,7 @@
                               </VBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="170.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="71.0" style="-fx-background-color: #bf8dbf; -fx-background-radius: 5;" text="Старт" textFill="WHITE">
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="71.0" style="-fx-background-color: #bf8dbf; -fx-background-radius: 5;" text="Старт" onAction="#start" textFill="WHITE">
                                        <HBox.margin>
                                           <Insets right="5.0" />
                                        </HBox.margin>

@@ -1,6 +1,8 @@
 package bsu.rpact.ui;
 
 import bsu.rpact.Application;
+import bsu.rpact.adapter.ImageAdapter;
+import bsu.rpact.entity.ImageProcessRequest;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +19,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +28,10 @@ import java.util.logging.Logger;
 public class ClientController implements Initializable {
 
     private File imageFile;
+
+    @Autowired
+    private ImageAdapter adapter;
+
     @FXML
     public ImageView preImage;
 
@@ -81,5 +88,23 @@ public class ClientController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(String.valueOf(ClientController.class)).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void start(ActionEvent actionEvent) {
+        byte[] arr = new byte[0];
+        try {
+            arr = Files.readAllBytes(imageFile.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int bitLayer = 2;
+        String rgb = "r";
+        String text = "sample text";
+        ImageProcessRequest request = new ImageProcessRequest();
+        request.setArr(arr);
+        request.setBitLayer(bitLayer);
+        request.setRgb(rgb);
+        request.setText(text);
+        adapter.post(request);
     }
 }
