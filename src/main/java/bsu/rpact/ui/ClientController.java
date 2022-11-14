@@ -42,7 +42,7 @@ public class ClientController implements Initializable {
     public void openFile(ActionEvent actionEvent) throws FileNotFoundException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("Image files","*.png",".*jpg","*.jpeg"));
+                new FileChooser.ExtensionFilter("Image files","*.png",".*jpg","*.jpeg","*.bmp"));
         fileChooser.setTitle("Select an image");
         fileChooser.setInitialDirectory(
                 new File(System.getProperty("user.home"))
@@ -59,7 +59,7 @@ public class ClientController implements Initializable {
         }
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("Image files","*.png",".*jpg","*.jpeg"));
+                new FileChooser.ExtensionFilter("Image files","*.png",".*jpg","*.jpeg","*.bmp"));
         fileChooser.setTitle("Choose directory to save");
         fileChooser.setInitialDirectory(
                 new File(System.getProperty("user.home"))
