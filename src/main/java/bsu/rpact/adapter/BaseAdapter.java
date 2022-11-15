@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class BaseAdapter {
-    protected String restPreambule = "https://localhost:7166/embed_image";
+    protected String restPreambule = "http://localhost:7166/embed_image";
     protected String apiTestPreambule = "https://catfact.ninja/fact";
     protected WebClient webClient;
 
